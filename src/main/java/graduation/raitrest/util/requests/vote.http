@@ -1,0 +1,42 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+# get vote by id
+GET http://localhost:8080/restaurant/rest/profile/votes/100013
+Accept: application/json
+Authorization: Basic user@yandex.ru password
+
+###
+
+# create by Vote
+POST http://localhost:8080/restaurant/rest/profile/votes/
+Content-Type: application/json;charset=UTF-8
+Authorization: Basic user_3@yandex.ru password3
+
+{"restaurantID":100009}
+###
+
+# create by ID restaurant
+POST http://localhost:8080/restaurant/rest/profile/votes/restaurant/100011
+Content-Type: application/json;charset=UTF-8
+Authorization: Basic user_3@yandex.ru password3
+
+###
+
+# Update vote
+PUT http://localhost:8080/restaurant/rest/profile/votes/100020
+Content-Type: application/json;charset=UTF-8
+Authorization: Basic user_3@yandex.ru password3
+
+{"restaurantID":100010}
+###
+
+DELETE http://localhost:8080/restaurant/rest/profile/votes/100020
+Content-Type: application/json;charset=UTF-8
+Authorization: Basic user_3@yandex.ru password3
+
+###

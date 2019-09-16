@@ -1,0 +1,104 @@
+# ONLY ADMIN!
+
+# Get all users
+GET http://localhost:8080/restaurant/rest/admin/users
+Accept: application/json
+Authorization: Basic admin@gmail.com admin
+###
+
+# Get user by ID 100001
+GET http://localhost:8080/restaurant/rest/admin/users/100001
+Accept: application/json
+Authorization: Basic admin@gmail.com admin
+###
+
+# Get not found
+GET http://localhost:8080/restaurant/rest/admin/users/1
+Accept: application/json
+Authorization: Basic admin@gmail.com admin
+###
+
+# Get by email
+GET http://localhost:8080/restaurant/rest/admin/users/by?email=user@yandex.ru
+Accept: application/json
+Authorization: Basic admin@gmail.com admin
+###
+
+# Delete user
+DELETE http://localhost:8080/restaurant/rest/admin/users/100005
+Accept: application/json
+Authorization: Basic admin@gmail.com admin
+###
+
+# Delete user, double delete - delete not found
+DELETE http://localhost:8080/restaurant/rest/admin/users/100005
+Accept: application/json
+Authorization: Basic admin@gmail.com admin
+###
+
+# Unauthorized
+GET http://localhost:8080/restaurant/rest/admin/users
+Accept: application/json
+###
+
+# Forrbiden
+GET http://localhost:8080/restaurant/rest/admin/users
+Accept: application/json
+Authorization: Basic manager@yandex.ru manager
+###
+
+# Update
+PUT http://localhost:8080/restaurant/rest/admin/users/100000
+Content-Type: application/json;charset=UTF-8
+Authorization: Basic admin@gmail.com admin
+
+{ "id":"100000","name":"UpdatedName","email":"user@yandex.ru","enabled":true,"registered":"2019-09-11T11:39","roles":["ROLE_ADMIN"],"password":"password"}
+###
+
+# Create user
+POST http://localhost:8080/restaurant/rest/admin/users
+Content-Type: application/json;charset=UTF-8
+Authorization: Basic admin@gmail.com admin
+
+{"name":"New","email":"new@gmail.com","enabled":true,"registered":"2019-09-11T12:01","roles":["ROLE_USER","ROLE_ADMIN"],"password":"newPass"}
+###
+
+# Enable-disable user
+PATCH http://localhost:8080/restaurant/rest/admin/users/100000?enabled=false
+Content-Type: application/json;charset=UTF-8
+Authorization: Basic admin@gmail.com admin
+
+###
+
+#For
+
+GET http://localhost:8080/restaurant/rest/profile
+Authorization: Basic user@yandex.ru password
+Content-Type: application/json
+
+###
+
+# Register new user
+POST http://localhost:8080/restaurant/rest/profile/register
+Content-Type: application/json;charset=UTF-8
+
+{"name":"newName","email":"newemail@ya.ru","password":"newPassword"}
+###
+
+# Update user
+PUT  http://localhost:8080/restaurant/rest/profile
+Content-Type: application/json;charset=UTF-8
+Authorization: Basic user@yandex.ru password
+
+{"name":"newName","email":"user@yandex.ru","password":"password"}
+###
+
+# Delete user
+DELETE  http://localhost:8080/restaurant/rest/profile
+Content-Type: application/json;charset=UTF-8
+Authorization: Basic newemail@ya.ru newPassword
+
+###
+
+
+

@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd"
+>
+    <!--<mvc:annotation-driven/>-->
+   <!-- <bean id="inMemoryUserRepository" class="graduation.raitrest.repository.inmemory.InMemoryUserRepository"/>
+
+    <bean class="graduation.raitrest.service.UserService">
+        <constructor-arg name="repository" ref="inMemoryUserRepository"/>
+    </bean>-->
+    <bean id="userService" class="graduation.raitrest.service.UserService">
+        <constructor-arg name="repository" ref="inMemoryUserRepository"/>
+    </bean>
+
+    <context:component-scan base-package="graduation.raitrest.**.repository.inmemory"/>
+    <context:component-scan base-package="graduation.raitrest.**.web.user"/>
+<!--    <context:component-scan base-package="graduation.**.repository.datajpa"/>-->
+    <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
+</beans>

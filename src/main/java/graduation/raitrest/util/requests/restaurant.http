@@ -1,0 +1,52 @@
+# ONLY MANAGER!
+
+# get restaurants by manager
+GET http://localhost:8080/restaurant/rest/manager/restaurant/manager/100002
+Accept: application/json
+Authorization: Basic bWFuYWdlckB5YW5kZXgucnU6bWFuYWdlcg==
+
+###
+
+# get restaurants by id
+GET http://localhost:8080/restaurant/rest/manager/restaurant/100009
+Accept: application/json
+Authorization: Basic bWFuYWdlckB5YW5kZXgucnU6bWFuYWdlcg==
+
+###
+
+# Create restaurant
+POST http://localhost:8080/restaurant/rest/manager/restaurant/
+Authorization: Basic manager@yandex.ru manager
+Content-Type: application/json;charset=UTF-8
+
+{"name":"Новый ресторан","address":"Новый Адресс , тел 111-111-111","owner":"Новый директор","registered":"2019-09-12T10:50:19.234+0000","description":"Новый ресторан","managerID":100002}
+###
+
+# Update new restaurant
+PUT http://localhost:8080/restaurant/rest/manager/restaurant/100020
+Authorization: Basic manager@yandex.ru manager
+Content-Type: application/json;charset=UTF-8
+
+{"name":"New Restaurant","address":"Новый Адресс , тел 999","owner":"new директор","registered":"2019-09-12T10:50:19.234+0000","description":"Новый ресторан","managerID":100002}
+###
+
+# Delete new restaurant
+DELETE http://localhost:8080/restaurant/rest/manager/restaurant/100020
+Authorization: Basic manager@yandex.ru manager
+
+###
+
+# ANYBODY AUTHORIZED
+
+# get restaurants by id
+GET http://localhost:8080/restaurant/rest/profile/restaurant/100009
+Accept: application/json
+Authorization: Basic  user@yandex.ru password
+
+###
+
+# get all restuarants
+GET http://localhost:8080/restaurant/rest/profile/restaurant/
+Accept: application/json
+Authorization: Basic user@yandex.ru password
+###
